@@ -70,13 +70,6 @@ int main(int argc, char** argv) {
     Line2(20, 13, 40, 80, &image, TGAColor(212, 126, 12, 255));
     Line2(80, 40, 13, 20, &image, TGAColor(255, 12, 136, 255));*/
 
-    for (int i = 0; i < 80; i++)
-    {
-        Line2(0, i * 10, 800, i * 10, &image, TGAColor(12, 27, 60, 255));
-        Line2(0, (i * 40) + 5, 800, (i * 20) + 5, &image, TGAColor(50, 20, 40, 255));
-        Line2(0, (i * 20) + 5, 800, (i * 40) + 5, &image, TGAColor(10, 30, 10, 255));
-    }
-
     if (2 == argc) {
         model = new Model(argv[1]);
     }
@@ -93,31 +86,11 @@ int main(int argc, char** argv) {
             int x0 = (v0.x + 1.) * width / 8;
             int y0 = (v0.y + 1.) * height / 8;
             int x1 = (v1.x + 1.) * width / 8;
-            int y1 = (v0.y + 1.) * height / 8;
+            int y1 = (v1.y + 1.) * height / 8;
 
-            if (y1 <= 190) {
-                Line2(x0 + 200, y0 + 200, x1 + 200, y1 + 200, &image, TGAColor(70, 20, 10, 255));
-                Line2(x0 + 200, clamp(y0 + 225, 450), x1 + 200, clamp(y1 + 225, 450), &image, TGAColor(90, 25, 15, 255));
-                Line2(x0 + 200, clamp(y0 + 250, 450), x1 + 200, clamp(y1 + 250, 450), &image, TGAColor(90, 25, 15, 255));
-                Line2(x0 + 200, clamp(y0 + 275, 450), x1 + 200, clamp(y1 + 275, 450), &image, TGAColor(90, 25, 15, 255));
-                Line2(x0 + 200, clamp(y0 + 300, 450), x1 + 200, clamp(y1 + 300, 450), &image, TGAColor(90, 25, 15, 255));
-                Line2(x0 + 200, clamp(y0 + 325, 450), x1 + 200, clamp(y1 + 325, 450), &image, TGAColor(90, 25, 15, 255));
-                Line2(x0 + 200, clamp(y0 + 350, 450), x1 + 200, clamp(y1 + 350, 450), &image, TGAColor(90, 25, 15, 255));
-                Line2(x0 + 200, clamp(y0 + 375, 450), x1 + 200, clamp(y1 + 375, 450), &image, TGAColor(90, 25, 15, 255));
-            }
-            else if (y1 > 200 && y1 <= 400) {
-                Line2(x0 + 200, y0 + 200, x1 + 200, y1 + 200, &image, TGAColor(12, 255, 89, 255));
-            }
-            else if (y1 > 400 && y1 <= 600) {
-                Line2(x0 + 200, y0 + 200, x1 + 200, y1 + 200, &image, TGAColor(12, 255, 89, 255));
-            }
-            else if (y1 > 600 && y1 <= 800) {
-                Line2(x0 + 200, y0 + 200, x1 + 200, y1 + 200, &image, TGAColor(12, 255, 89, 255));
-            }
+            Line2(x0 + 200, y0 + 200, x1 + 200, y1 + 200, &image, TGAColor(255, 255, 255, 255));
         }
     }
-
-
 
     image.flip_vertically(); // we want to have the origin at the left bottom corner of the image
     image.write_tga_file("output.tga");
