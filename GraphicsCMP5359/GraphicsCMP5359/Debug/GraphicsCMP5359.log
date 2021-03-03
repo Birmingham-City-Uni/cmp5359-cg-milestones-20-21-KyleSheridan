@@ -1,0 +1,15 @@
+﻿  main.cpp
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(20,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(21,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(47,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(50,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(52,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(52,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(93,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(94,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(95,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(96,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  model.cpp
+  tgaimage.cpp
+  Generating Code...
+  GraphicsCMP5359.vcxproj -> D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Debug\GraphicsCMP5359.exe
