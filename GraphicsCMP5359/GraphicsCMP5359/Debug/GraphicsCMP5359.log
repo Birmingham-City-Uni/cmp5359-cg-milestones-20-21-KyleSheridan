@@ -10,14 +10,17 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(51,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(53,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(53,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(100,124): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(102,102): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
           with
           [
               t=int
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(100,77): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(102,66): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
           with
           [
               t=int
           ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(109,101): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(109,84): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(109,67): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
   GraphicsCMP5359.vcxproj -> D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Debug\GraphicsCMP5359.exe
