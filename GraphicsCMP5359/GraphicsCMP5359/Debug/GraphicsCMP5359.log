@@ -1,12 +1,23 @@
 ﻿  main.cpp
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(20,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\TriangleRenderer.h(16,40): warning C4244: 'return': conversion from 't' to 'float', possible loss of data
+          with
+          [
+              t=int
+          ]
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(21,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(47,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(50,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(52,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(52,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(86,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(87,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(88,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(89,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(22,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(48,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(51,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(53,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(53,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(100,124): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
+          with
+          [
+              t=int
+          ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\main.cpp(100,77): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
+          with
+          [
+              t=int
+          ]
   GraphicsCMP5359.vcxproj -> D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Debug\GraphicsCMP5359.exe
