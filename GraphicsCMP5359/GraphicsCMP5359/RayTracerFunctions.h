@@ -9,6 +9,7 @@
 #include "material.h"
 #include "Sphere.h"
 #include "model.h"
+#include "bvh.h"
 
 // method to ensure colours don’t go out of 8 bit range in RGB​
 void clamp255(Vec3f& col) {
@@ -27,19 +28,24 @@ double Hit_Sphere(const Point3f& centre, double radius, const Ray& r) {
 	else return (-b - sqrt(discriminant)) / (2.0 * a);
 }
 
-Colour Ray_Colour(const Ray& r, const Hittable& world, int depth) {
+Colour Ray_Colour(const Ray& r, const Colour& background, const Hittable& world, int depth) {
 	Hit_Record rec;
 	if (depth <= 0) return Colour(0, 0, 0);
-	if (world.Hit(r, 0.001, infinity, rec)) {
-		Ray scattered;
-		Colour attentuation;
-		if (rec.mat_ptr->Scatter(r, rec, attentuation, scattered))
-			return attentuation * Ray_Colour(scattered, world, depth - 1);
-		return Colour(0, 0, 0);
-	}
-	Vec3f unit_direction = r.Direction().normalize();
+	if (!world.Hit(r, 0.001, infinity, rec))
+		return background;
+
+	Ray scattered;
+	Colour attentuation;
+	Colour emitted = rec.mat_ptr->Emitted();
+
+	if (!rec.mat_ptr->Scatter(r, rec, attentuation, scattered))
+		return emitted;
+
+	return emitted + attentuation * Ray_Colour(scattered, background, world, depth - 1);
+	
+	/*Vec3f unit_direction = r.Direction().normalize();
 	auto t = 0.5 * (unit_direction.y + 1.0);
-	return (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;
+	return (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;*/
 }
 
 //	TODO: Use this if passing screen is thread unsafe.
@@ -57,6 +63,8 @@ void FullRender(TGAImage& image, Hittable_List world, Camera cam, int spp, int m
 	const Colour black(0, 0, 0);
 	Colour pix_col(black);
 
+	Colour background(0, 0, 0);
+
 	for (int y = height - 1; y >= 0; --y) {
 		for (int x = 0; x < width; ++x) {
 			pix_col = black;
@@ -64,7 +72,12 @@ void FullRender(TGAImage& image, Hittable_List world, Camera cam, int spp, int m
 				auto u = double(x + Random_Double()) / (image_width - 1);
 				auto v = double(y + Random_Double()) / (image_height - 1);
 				Ray ray = cam.Get_Ray(u, v);
-				pix_col = pix_col + Ray_Colour(ray, world, max_depth);
+
+				Vec3f unit_direction = ray.Direction().normalize();
+				auto t = 0.5 * (unit_direction.y + 1.0);
+				background =  (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;
+
+				pix_col = pix_col + Ray_Colour(ray, background, world, max_depth);
 			}
 			pix_col /= 255.f * spp;
 			pix_col.x = sqrt(pix_col.x);
@@ -94,7 +107,8 @@ void PartialRender(TGAImage& image, Hittable_List world, Camera cam, int start, 
 				auto u = double(x + Random_Double()) / (image_width - 1);
 				auto v = double(y + Random_Double()) / (image_height - 1);
 				Ray ray = cam.Get_Ray(u, v);
-				pix_col = pix_col + Ray_Colour(ray, world, max_depth);
+
+				pix_col = pix_col + Ray_Colour(ray, black, world, max_depth);
 			}
 			pix_col /= 255.f * spp;
 			pix_col.x = sqrt(pix_col.x);
@@ -116,13 +130,20 @@ void LineRender(TGAImage& image, Hittable_List world, Camera* cam, int y, int sp
 	const Colour black(0, 0, 0);
 	Colour pix_col(black);
 
+	Colour background(0, 0, 0);
+
 	for (int x = 0; x < width; ++x) {
 		pix_col = black;
 		for (int s = 0; s < spp; s++) {
 			auto u = double(x + Random_Double()) / (image_width - 1);
 			auto v = double(y + Random_Double()) / (image_height - 1);
 			Ray ray = cam->Get_Ray(u, v);
-			pix_col = pix_col + Ray_Colour(ray, world, max_depth);
+
+			Vec3f unit_direction = ray.Direction().normalize();
+			auto t = 0.5 * (unit_direction.y + 1.0);
+			background = (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;
+
+			pix_col = pix_col + Ray_Colour(ray, background, world, max_depth);
 		}
 		pix_col /= 255.f * spp;
 		pix_col.x = sqrt(pix_col.x);
@@ -146,15 +167,20 @@ Hittable_List Random_Scene() {
 			Point3f centre(a + 0.9 * Random_Double(), 0.2, b + 0.9 * Random_Double());
 			if ((centre - Point3f(4, 0.2, 0)).length() > 0.9) {
 				std::shared_ptr<Material> sphere_material;
-				if (choose_mat < 0.8) {
+				if (choose_mat < 0.75) {
 					auto albedo = Colour::Random() * Colour::Random();
 					sphere_material = std::make_shared<Lambertian>(albedo);
 					world.Add(std::make_shared<Sphere>(centre, 0.2, sphere_material));
 				}
-				else if (choose_mat < 0.95) {
+				else if (choose_mat < 0.90) {
 					auto albedo = Colour::Random(0.5, 1);
 					auto fuzz = Random_Double(0, 0.5);
 					sphere_material = std::make_shared<Metal>(albedo, fuzz);
+					world.Add(std::make_shared<Sphere>(centre, 0.2, sphere_material));
+				}
+				else if (choose_mat < 0.95) {
+					auto albedo = Colour::Random(0.5, 1);
+					sphere_material = std::make_shared<Diffuse_Light>(Colour(255, 255, 255));
 					world.Add(std::make_shared<Sphere>(centre, 0.2, sphere_material));
 				}
 				else {
@@ -170,8 +196,12 @@ Hittable_List Random_Scene() {
 	world.Add(std::make_shared<Sphere>(Point3f(-4, 1, 0), 1.0, material2));
 	auto material3 = std::make_shared<Metal>(Colour(0.7, 0.6, 0.5), 0.0);
 	world.Add(std::make_shared<Sphere>(Point3f(0, 1, 0), 1.0, material3));
+	auto material4 = std::make_shared<Diffuse_Light>(Colour(255, 255, 255));
+	world.Add(std::make_shared<Sphere>(Point3f(0, 4, 0), 1.0, material4));
 
-	return world;
+	//return world;
+
+	return Hittable_List(std::make_shared<BVH_Node>(world));
 }
 
 void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max_depth, int width, int height) {
@@ -183,14 +213,14 @@ void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max
 	auto world = Random_Scene();
 
 	//Camera
-	Point3f lookfrom(13, 2, 3);
+	Point3f lookfrom(0, 2, 17);
 	Point3f lookat(0, 0, 0);
 	Vec3f vup(0, 1, 0);
-	auto dist_to_focus = 10;
+	auto dist_to_focus = 17;
 	auto aperture = 0.15;
 	Camera cam(lookfrom, lookat, vup, 20.0, aspect_ratio, aperture, dist_to_focus);
 
-	auto material_ground = std::make_shared<Lambertian>(Colour(0.8, 0.8, 0.0));
+	/*auto material_ground = std::make_shared<Lambertian>(Colour(0.8, 0.8, 0.0));
 	auto material_center = std::make_shared<Lambertian>(Colour(0.1, 0.2, 0.5));
 	auto material_left = std::make_shared<Dielectric>(1.5);
 	auto material_right = std::make_shared<Metal>(Colour(0.8, 0.6, 0.2), 0.0);
@@ -199,7 +229,7 @@ void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max
 	world.Add(std::make_shared<Sphere>(Point3f(0.0, 0.0, -1.0), 0.5, material_center));
 	world.Add(std::make_shared<Sphere>(Point3f(-1.0, 0.0, -1.0), 0.5, material_left));
 	world.Add(std::make_shared<Sphere>(Point3f(-1.0, 0.0, -1.0), -0.4, material_left));
-	world.Add(std::make_shared<Sphere>(Point3f(1.0, 0.0, -1.0), 0.5, material_right));
+	world.Add(std::make_shared<Sphere>(Point3f(1.0, 0.0, -1.0), 0.5, material_right));*/
 
 	const Colour white(255, 255, 255);
 	const Colour black(0, 0, 0);
@@ -217,7 +247,7 @@ void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max
 
 		for (int y = height - 1; y >= 0; --y)
 		{
-			pool.Enqueue(std::bind(LineRender, image, world, &cam, y, spp, max_depth, int width, int height));
+			pool.Enqueue(std::bind(LineRender, image, world, &cam, y, spp, max_depth, width, height));
 		}
 	}*/
 

@@ -22,16 +22,16 @@ int main(int argc, char** argv) {
         model = new Model(argv[1]);
     }
     else {
-        model = new Model("PalmTree.obj");
+        //model = new Model("PalmTree.obj");
     }
 
     //Rasterizer
     {
-        TGAImage image(width, height, TGAImage::RGB);
+        /*TGAImage image(width, height, TGAImage::RGB);
 
         RenderRasteriser(image, model, width, height);
 
-        image.write_tga_file("Rasteriser.tga");
+        image.write_tga_file("Rasteriser.tga");*/
     }
 
     //Ray Tracer
@@ -42,6 +42,7 @@ int main(int argc, char** argv) {
 
 		image.write_tga_file("RayTracer.tga");
     }
+
 
     delete model;
     return 0;

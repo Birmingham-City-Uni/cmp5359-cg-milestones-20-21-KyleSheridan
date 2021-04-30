@@ -14,6 +14,7 @@ public:
 		v0(vert0), v1(vert1), v2(vert2), normal(vn), mat_ptr(m) {}
 
 	virtual bool Hit(const Ray& r, double t_min, double t_max, Hit_Record& rec) const override;
+	virtual bool Bounding_Box(AABB& output_box) const override;
 
 private:
 	Point3f v0, v1, v2;
@@ -55,5 +56,17 @@ bool Triangle::Hit(const Ray& r, double t_min, double t_max, Hit_Record& rec) co
 	rec.normal = normal;
 	rec.mat_ptr = mat_ptr;
 
+	return true;
+}
+
+inline bool Triangle::Bounding_Box(AABB& output_box) const
+{
+	float min[3];
+	float max[3];
+	for (int i = 0; i < 3; i++) {
+		min[i] = std::min(v0[i], std::min(v1[i], v2[i]));
+		max[i] = std::max(v0[i], std::max(v1[i], v2[i]));
+	}
+	output_box = AABB(Vec3f(min[0], min[1], min[2]), Vec3f(max[0], max[1], max[2]));
 	return true;
 }

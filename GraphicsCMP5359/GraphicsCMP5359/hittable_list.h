@@ -26,8 +26,24 @@ public:
 		}
 		return hit_anything;
 	}
+	virtual bool Bounding_Box(AABB& output_box) const override;
 
 
-private:
+
+public:
 	std::vector<std::shared_ptr<Hittable>> objects;
 };
+
+inline bool Hittable_List::Bounding_Box(AABB& output_box) const
+{
+	if (objects.empty()) return false;
+
+	AABB temp_box;
+	bool first_box = true;
+	for (const auto& object : objects) {
+		if (!object->Bounding_Box(temp_box)) return false;
+		output_box = first_box ? temp_box : Surrounding_Box(output_box, temp_box);
+		first_box = false;
+	}
+	return true;
+}
