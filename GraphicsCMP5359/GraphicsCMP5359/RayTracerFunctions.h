@@ -159,6 +159,9 @@ void LineRender(TGAImage& image, Hittable_List world, Camera* cam, int y, int sp
 //Turn into Scene class instead of method
 Hittable_List Random_Scene() {
 	Hittable_List world;
+
+	auto t_start = std::chrono::high_resolution_clock::now();
+
 	auto ground_material = std::make_shared<Lambertian>(Colour(0.5, 0.5, 0.5));
 	world.Add(std::make_shared<Sphere>(Point3f(0, -1000, 0), 1000, ground_material));
 	for (int a = -11; a < 11; a++) {
@@ -200,6 +203,10 @@ Hittable_List Random_Scene() {
 	world.Add(std::make_shared<Sphere>(Point3f(0, 4, 0), 1.0, material4));
 
 	//return world;
+
+	auto t_end = std::chrono::high_resolution_clock::now();
+	auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
+	std::cerr << "BVH Generated:  " << passedTime << " ms\n";
 
 	return Hittable_List(std::make_shared<BVH_Node>(world));
 }

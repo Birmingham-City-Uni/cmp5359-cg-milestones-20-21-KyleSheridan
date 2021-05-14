@@ -20,6 +20,13 @@ Model::Model(const char* filename) : verts_(), faces_() {
             for (int i = 0; i < 3; i++) iss >> v.raw[i];
             verts_.push_back(v);
         }
+        else if (!line.compare(0, 3, "vt ")) {
+            iss >> trash;
+            iss >> trash;
+            Vec2f vt;
+            for (int i = 0; i < 2; i++) iss >> vt[i];
+            vts_.push_back(vt);
+        }
         else if (!line.compare(0, 2, "f ")) {
             std::vector<int> f;
             int itrash, idx;
@@ -53,3 +60,6 @@ Vec3f Model::vert(int i) {
     return verts_[i];
 }
 
+Vec2f Model::vt(int i) {
+    return vts_[i];
+}
