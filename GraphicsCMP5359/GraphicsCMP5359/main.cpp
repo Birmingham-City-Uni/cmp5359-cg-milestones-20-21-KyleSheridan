@@ -18,11 +18,11 @@ const int height = 800;
 
 int main(int argc, char** argv) {
 
-    if (2 == argc) {
-        model = new Model(argv[1]);
+    if (3 == argc) {
+        model = new Model(argv[1], argv[2]);
     }
     else {
-        model = new Model("PalmTree.obj");
+        model = new Model("PalmTree.obj", "PalmTree.mtl");
     }
 
     //Rasterizer

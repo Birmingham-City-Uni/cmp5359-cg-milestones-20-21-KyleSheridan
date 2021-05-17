@@ -8,19 +8,19 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(30,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(32,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(32,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(65,102): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(83,102): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(65,66): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(83,66): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(77,117): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(77,100): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(77,83): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(96,165): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(96,132): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(96,99): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\ray.h(12,47): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
           with
           [
@@ -222,53 +222,51 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
           ]
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(216,37): warning C4305: 'initializing': truncation from 'double' to 'float'
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(245,9): warning C4101: 't': unreferenced local variable
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(161,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(162,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(159): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random_In_Unit_Disk(void)'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(160): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random_In_Unit_Disk(void)'
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\camera.h(32): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random_In_Unit_Disk(void)' being compiled
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(47): message : see reference to class template instantiation 'Vec3<float>' being compiled
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(161,31): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\model.h(16): message : see reference to class template instantiation 'Vec3<float>' being compiled
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(162,31): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(148,78): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(149,78): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(147): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random(double,double)'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(148): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random(double,double)'
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(179): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random(double,double)' being compiled
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(148,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(149,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(148,28): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(149,28): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(144,62): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(145,62): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(143): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random(void)'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(144): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random(void)'
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(174): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random(void)' being compiled
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(144,45): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(145,45): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(144,28): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(145,28): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  model.cpp
-  Generating Code...
   GraphicsCMP5359.vcxproj -> D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Debug\GraphicsCMP5359.exe

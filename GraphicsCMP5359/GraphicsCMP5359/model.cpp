@@ -5,15 +5,17 @@
 #include <vector>
 #include "model.h"
 
-Model::Model(const char* filename) : verts_(), faces_() {
-    std::ifstream in;
-    in.open(filename, std::ifstream::in);
-    if (in.fail()) return;
+Model::Model(const char* modelFilename, const char* matFilename) : verts_(), faces_() {
+    std::ifstream modelFile;
+    modelFile.open(modelFilename, std::ifstream::in);
+    if (modelFile.fail()) return;
     std::string line;
-    while (!in.eof()) {
-        std::getline(in, line);
+    std::string material;
+    while (!modelFile.eof()) {
+        std::getline(modelFile, line);
         std::istringstream iss(line.c_str());
         char trash;
+        std::string strash;
         if (!line.compare(0, 2, "v ")) {
             iss >> trash;
             Vec3f v;
@@ -27,18 +29,61 @@ Model::Model(const char* filename) : verts_(), faces_() {
             for (int i = 0; i < 2; i++) iss >> vt[i];
             vts_.push_back(vt);
         }
+        else if (!line.compare(0, 7, "usemtl ")) {
+            material.clear();
+            
+            iss >> strash;
+
+            iss >> material;
+            //std::cout << material << "\n";
+        }
         else if (!line.compare(0, 2, "f ")) {
             std::vector<int> f;
-            int itrash, idx;
+            std::vector<int> t;
+            int itrash, idx, tex;
+            //std::cout << iss.str() << std::endl;
+
             iss >> trash;
-            while (iss >> idx >> trash >> itrash >> trash >> itrash) {
+            while (iss >> idx >> trash >> tex >> trash >> itrash) {
                 idx--; // in wavefront obj all indices start at 1, not zero
+                tex--;
                 f.push_back(idx);
+                t.push_back(tex);
             }
             faces_.push_back(f);
+            texIdx_.push_back(t);
+            faces__.emplace_back(f, t, material);
         }
     }
     std::cerr << "# v# " << verts_.size() << " f# " << faces_.size() << std::endl;
+
+    std::ifstream matFile;
+    matFile.open(matFilename, std::ifstream::in);
+    if (matFile.fail()) return;
+    while (!matFile.eof()) {
+        std::getline(matFile, line);
+        std::istringstream iss(line.c_str());
+
+        std::string strash;
+
+        if (!line.compare(0, 7, "newmtl ")) {
+            iss >> strash;
+
+            iss >> material;
+        }
+        else if (!line.compare(0, 3, "Kd ")) {
+            Vec3f colour;
+            
+            iss >> strash;
+
+            for(int i = 0; i < 3; i++)
+            {
+                iss >> colour[i];
+            }
+
+            mats_.emplace(material, MtlMaterial(material, colour));
+        }
+    }
 }
 
 Model::~Model() {
@@ -52,8 +97,21 @@ int Model::nfaces() {
     return (int)faces_.size();
 }
 
-std::vector<int> Model::face(int idx) {
+std::vector<int>& Model::face(int idx) {
     return faces_[idx];
+}
+
+Face Model::face2(int idx) {
+    return faces__[idx];
+}
+
+MtlMaterial& Model::mat(std::string key)
+{
+    return mats_[key];
+}
+
+std::vector<int>& Model::tex(int idx) {
+    return texIdx_[idx];
 }
 
 Vec3f Model::vert(int i) {

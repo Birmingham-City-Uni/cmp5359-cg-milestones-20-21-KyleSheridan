@@ -54,13 +54,31 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
 
     for (int i = 0; i < model->nfaces(); i++) {
         std::vector<int> face = model->face(i);
+        std::vector<int> tex = model->tex(i);
+
+        Face face2 = model->face2(i);
+        
+        /*for (auto& i : face)
+        {
+            std::cout << i << "\n";
+        }
+
+        std::cout << "------- face" << "\n";
+
+        for (auto& i : tex)
+        {
+            std::cout << i << "\n";
+        }
+
+        std::cout << "------- texture" << "\n";*/
+
         Vec2i screen_coords[3];
         Vec3f world_coords[3];
 
         float z = 10000;
 
         for (int j = 0; j < 3; j++) {
-            Vec3f v = model->vert(face[j]);
+            Vec3f v = model->vert(face2.face[j]);
 
             screen_coords[j] = Vec2i(((v.x + 1.0) * width / 8.0) + 200, ((v.y + 1.0) * height / 8.0) + 200); //TO DO - CHANGE THIS LINE -- THIS IS SO PALM TREE FITS
             world_coords[j] = v;
@@ -74,7 +92,8 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
         float intensity = n.dotProduct(light_dir);
 
         if (intensity > 0) {
-            tr->Triangle(screen_coords, depthBuffer, z, image, TGAColor(intensity * 255, intensity * 255, intensity * 255, 255));
+            MtlMaterial mat = model->mat(face2.material);
+            tr->Triangle(screen_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
         }
     }
 

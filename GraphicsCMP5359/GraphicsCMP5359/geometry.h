@@ -76,6 +76,7 @@ class Vec3
 public:
 	union {
 		struct { T x, y, z; };
+		struct { T r, g, b; };
 		struct { T ivert, iuv, inorm; };
 		T raw[3];
 	};
