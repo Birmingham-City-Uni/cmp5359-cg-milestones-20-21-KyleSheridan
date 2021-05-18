@@ -10,21 +10,21 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(37,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(37,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(70,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(164,32): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(165,33): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(226,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(226,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(227,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(228,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(228,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(231,38): warning C4305: 'argument': truncation from 'double' to 'T'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(166,32): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(167,33): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(228,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(228,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(229,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(230,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(230,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(233,38): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(282,169): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(282,136): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(282,103): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(284,162): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(284,125): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RasterFunctions.h(284,87): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\ray.h(12,47): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
           with
           [

@@ -153,6 +153,8 @@ void convertToRaster(
     vertexRaster.x = (vertexNDC.x + 1) / 2 * imageWidth;
     vertexRaster.y = (1 - vertexNDC.y) / 2 * imageHeight;
     vertexRaster.z = -vertexCamera.z;
+
+    //std::cout << vertexRaster << "\n";
 }
 
 Matrix44f worldToCamera;
@@ -244,7 +246,7 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
         
         Face face = model->face(i);
 
-        std::cout << i << "\n";
+        //std::cout << i << "\n";
 
         Vec2i screen_coords[3];
         Vec3f world_coords[3];
@@ -279,7 +281,7 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
             if (intensity > 0) {
                 MtlMaterial mat = model->mat(face.material);
                 //tr->Triangle(screen_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
-                tr->Triangle(raster_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
+                tr->Triangle(raster_coords, depthBuffer, z, image, TGAColor(intensity * /*mat.diffuse.r * */ 255, intensity * /*mat.diffuse.g **/ 255, intensity * /*mat.diffuse.b **/ 255, 255));
             }
 
             //std::cout << raster_coords[0] << " / " << raster_coords[1] << "\n";
