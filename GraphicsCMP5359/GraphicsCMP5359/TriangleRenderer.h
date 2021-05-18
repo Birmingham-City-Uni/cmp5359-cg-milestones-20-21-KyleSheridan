@@ -9,6 +9,7 @@ public:
 	TriangleRenderer() {}
 
 	void Triangle(Vec2i points[3], float* depthBuffer, float z, TGAImage& image, TGAColor color);
+	void Triangle(Vec3f points[3], float* depthBuffer, float z, TGAImage& image, TGAColor color);
 
 private:
 	float sign(Vec2i p1, Vec2i p2, Vec2i p3)

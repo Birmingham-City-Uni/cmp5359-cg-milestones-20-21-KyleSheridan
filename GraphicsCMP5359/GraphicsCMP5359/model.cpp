@@ -35,13 +35,11 @@ Model::Model(const char* modelFilename, const char* matFilename) : verts_(), fac
             iss >> strash;
 
             iss >> material;
-            //std::cout << material << "\n";
         }
         else if (!line.compare(0, 2, "f ")) {
             std::vector<int> f;
             std::vector<int> t;
             int itrash, idx, tex;
-            //std::cout << iss.str() << std::endl;
 
             iss >> trash;
             while (iss >> idx >> trash >> tex >> trash >> itrash) {
@@ -50,9 +48,7 @@ Model::Model(const char* modelFilename, const char* matFilename) : verts_(), fac
                 f.push_back(idx);
                 t.push_back(tex);
             }
-            faces_.push_back(f);
-            texIdx_.push_back(t);
-            faces__.emplace_back(f, t, material);
+            faces_.emplace_back(f, t, material);
         }
     }
     std::cerr << "# v# " << verts_.size() << " f# " << faces_.size() << std::endl;
@@ -97,21 +93,13 @@ int Model::nfaces() {
     return (int)faces_.size();
 }
 
-std::vector<int>& Model::face(int idx) {
+Face& Model::face(int idx) {
     return faces_[idx];
-}
-
-Face Model::face2(int idx) {
-    return faces__[idx];
 }
 
 MtlMaterial& Model::mat(std::string key)
 {
     return mats_[key];
-}
-
-std::vector<int>& Model::tex(int idx) {
-    return texIdx_[idx];
 }
 
 Vec3f Model::vert(int i) {

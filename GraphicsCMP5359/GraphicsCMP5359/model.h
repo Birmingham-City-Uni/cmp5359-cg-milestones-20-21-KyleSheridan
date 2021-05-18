@@ -9,6 +9,10 @@ struct Face {
 	std::string material;
 
 	Face(std::vector<int> f, std::vector<int> t, std::string mat) : face(f), texInx(t), material(mat) {}
+
+	int faceSize() {
+		return face.size();
+	}
 };
 
 struct MtlMaterial {
@@ -25,10 +29,8 @@ struct MtlMaterial {
 class Model {
 private:
 	std::vector<Vec3f> verts_;
-	std::vector<std::vector<int> > faces_;
-	std::vector<Face> faces__;
+	std::vector<Face> faces_;
 	std::vector<Vec2f> vts_;
-	std::vector<std::vector<int>> texIdx_;
 	std::map<std::string, MtlMaterial> mats_;
 
 public:
@@ -38,8 +40,6 @@ public:
 	int nfaces();
 	Vec3f vert(int i);
 	Vec2f vt(int i);
-	std::vector<int> &face(int idx);
-	std::vector<int> &tex(int idx);
-	Face face2(int idx);
+	Face& face(int idx);
 	MtlMaterial& mat(std::string key);
 };

@@ -13,8 +13,8 @@
 const TGAColor white = TGAColor(255, 255, 255, 255);
 const TGAColor red = TGAColor(255, 0, 0, 255);
 Model* model = nullptr;
-const int width = 800;
-const int height = 800;
+const int width = 1920;
+const int height = 1080;
 
 int main(int argc, char** argv) {
 
@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
         model = new Model(argv[1], argv[2]);
     }
     else {
-        model = new Model("PalmTree.obj", "PalmTree.mtl");
+        model = new Model("Scene.obj", "Scene.mtl");
     }
 
     //Rasterizer
