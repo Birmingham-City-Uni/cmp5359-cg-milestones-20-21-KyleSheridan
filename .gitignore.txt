@@ -1,3 +1,0 @@
-#models and materials
-*.obj
-*.mtl
