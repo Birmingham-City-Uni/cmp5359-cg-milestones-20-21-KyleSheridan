@@ -42,4 +42,5 @@ public:
 	Vec2f vt(int i);
 	Face& face(int idx);
 	MtlMaterial& mat(std::string key);
+	std::map<std::string, MtlMaterial> matMap();
 };

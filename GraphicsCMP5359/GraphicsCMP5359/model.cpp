@@ -102,6 +102,11 @@ MtlMaterial& Model::mat(std::string key)
     return mats_[key];
 }
 
+std::map<std::string, MtlMaterial> Model::matMap()
+{
+    return mats_;
+}
+
 Vec3f Model::vert(int i) {
     return verts_[i];
 }

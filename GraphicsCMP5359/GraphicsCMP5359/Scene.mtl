@@ -318,105 +318,125 @@ Kd 0.50 0.50 0.50
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
+newmtl phong1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Screen.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl phong2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Screen2.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl phong3SG
+illum 4
+Kd 0.05 0.05 0.05
+Ka 0.00 0.00 0.00
+Tf 0.36 0.36 0.36
+Ni 1.00
+Ks 0.23 0.23 0.23
+Ns 18.00
 newmtl standardSurface2SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.94 0.94 0.94
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 16.55
 newmtl standardSurface3SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.05 0.05 0.05
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
 newmtl standardSurface4SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.01 0.01 0.01
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
 newmtl standardSurface5SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.01 0.01 0.01
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
+Ks 0.14 0.14 0.14
+Ns 18.00
 newmtl standardSurface6SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.92 0.92 0.92
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 18.00
 newmtl standardSurface7SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.01 0.01 0.01
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
+Ks 0.06 0.06 0.06
+Ns 18.00
 newmtl standardSurface8SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.02 0.02 0.02
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
 newmtl standardSurface9SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.14 0.03 0.01
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
 newmtl standardSurface10SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.01 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
 newmtl standardSurface11SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.38 0.10 0.06
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
 newmtl standardSurface12SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.06 0.15 0.04
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00
 newmtl standardSurface14SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.50 0.50 0.50
 Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 0.00
+Tf 0.23 0.23 0.23
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 18.00
 newmtl standardSurface15SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.61 0.30 0.04
 Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 0.00
-newmtl standardSurface16SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 0.00
-newmtl standardSurface17SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 0.00
-newmtl standardSurface19SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 0.00
+Tf 0.92 0.92 0.92
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 18.00
 newmtl standardSurface20SG
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.08 0.09 0.10
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 0.00
+Ni 1.00

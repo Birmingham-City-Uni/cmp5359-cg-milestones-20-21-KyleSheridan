@@ -1,6 +1,6 @@
 #include "TriangleRenderer.h"
 
-void TriangleRenderer::Triangle(Vec2i points[3], float* depthBuffer, float z, TGAImage& image, TGAColor color)
+void TriangleRenderer::Triangle(Vec2i points[3], std::vector<float>& depthBuffer, float z, TGAImage& image, TGAColor color)
 {
 	Vec2i* bbox = FindBoundingBox(points);
 
@@ -23,7 +23,7 @@ void TriangleRenderer::Triangle(Vec2i points[3], float* depthBuffer, float z, TG
 	}
 }
 
-void TriangleRenderer::Triangle(Vec3f points[3], float* depthBuffer, float z, TGAImage& image, TGAColor color)
+void TriangleRenderer::Triangle(Vec3f points[3], std::vector<float>& depthBuffer, float z, TGAImage& image, TGAColor color)
 {
 	Vec2i screenPoints[3];
 
@@ -32,16 +32,32 @@ void TriangleRenderer::Triangle(Vec3f points[3], float* depthBuffer, float z, TG
 
 	Vec2i* bbox = FindBoundingBox(screenPoints);
 
+	float area = edgeFunction(points[0], points[1], points[2]);
+
 	for (int y = bbox[0].y; y <= bbox[1].y; y++) {
 		for (int x = bbox[0].x; x <= bbox[1].x; x++) {
 			if (y >= 0 && y < image.get_height() && x >= 0 && x < image.get_width()) {
 				Vec2i point = Vec2i(x, y);
+
+				Vec3f pixelSample(x + 0.5, y + 0.5, 0); // You could use multiple pixel samples for antialiasing!!
+				   // Calculate the area of the subtriangles for barycentric coordinates
+				float w0 = edgeFunction(points[1], points[2], pixelSample);
+				float w1 = edgeFunction(points[1], points[0], pixelSample);
+				float w2 = edgeFunction(points[0], points[1], pixelSample);
+
+				w0 /= area;
+				w1 /= area;
+				w2 /= area;
+				float oneOverZ = points[0].z * w0 + points[1].z * w1 + points[2].z * w2; // reciprocal for depth testing
+				float a = 1 / oneOverZ;
+
 				if (PointInTriangle(point, screenPoints[0], screenPoints[1], screenPoints[2])) {
 
 					//std::cout << y << " " << x << " " << y * 640 + x << "\n";
+					
 
-					if (z < depthBuffer[y * 640 + x]) {
-						depthBuffer[y * 640 + x] = z;
+					if (z < depthBuffer[(y * image.get_width()) + x]) {
+						depthBuffer[(y * image.get_width()) + x] = z;
 
 						image.set(x, y, color);
 					}

@@ -67,7 +67,8 @@ void computeScreenCoordinates(
     right = ((filmApertureWidth * inchToMm / 2) / focalLength) * nearClippingPlane;
 
     // field of view (horizontal)
-    float fov = 2 * 180 / M_PI * atan((filmApertureWidth * inchToMm / 2) / focalLength);
+    //float fov = 2 * 180 / M_PI * atan((filmApertureWidth * inchToMm / 2) / focalLength);
+    float fov = 54.43f;
     std::cerr << "Field of view " << fov << std::endl;
 
     float xscale = 1;
@@ -125,6 +126,7 @@ void convertToRaster(
     // store the value in vertexCamera
     Vec3f vertexCamera;
     worldToCamera.multVecMatrix(vertexWorld, vertexCamera);
+
 
     // TASK 2
     // convert to screen space - your implementation here
@@ -201,7 +203,7 @@ Matrix44f lookAt(const Vec3f from, const Vec3f to, const Vec3f _tmp = Vec3f(0, 1
 
 void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
     TriangleRenderer* tr = new TriangleRenderer();
-    Vec3f light_dir(0, 0, -1);
+    Vec3f light_dir(0, 0, 1);
 
     // compute screen coordinates
     float t, b, l, r;
@@ -215,9 +217,15 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
         focalLength,
         t, b, l, r);
 
-    float* depthBuffer = new float[image.get_width() * image.get_height()];
+    /*float* depthBuffer = new float[width * height];
     for (int i = 0; i < image.get_width() * image.get_height(); i++)
-        depthBuffer[i] = farClippingPlane;
+        depthBuffer[i] = -farClippingPlane;*/
+
+    std::vector<float> depthBuffer(width * height);
+    //for (int i = 0; i < image.get_width() * image.get_height(); i++)
+    //    depthBuffer.emplace_back(-farClippingPlane);
+
+    std::fill(begin(depthBuffer), end(depthBuffer), farClippingPlane);
 
     float camX, camY, camZ;
     float camAngleX = 0.0f;
@@ -239,6 +247,11 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
 
     std::cout << model->nfaces() << "\n";
 
+    for (auto& mat : model->matMap()) {
+        std::cout << mat.second.matName << "\n";
+        std::cout << mat.second.diffuse << "\n";
+    }
+
     for (int i = 0; i < model->nfaces(); i++) {
         
         if (i == 32)
@@ -252,7 +265,7 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
         Vec3f world_coords[3];
         Vec3f raster_coords[3];
 
-        float z = 10000;
+        float z = -farClippingPlane;
 
         if (face.faceSize() > 0) {
             for (int j = 0; j < 3; j++) {
@@ -266,22 +279,37 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
 
                 world_coords[j] = v;
 
-                if (v.z < z) {
-                    z = v.z;
+                if (raster_coords[j].z > z) {
+                    z = raster_coords[j].z;
                 }
             }
-            Vec3f n = (world_coords[2] - world_coords[0]) ^ (world_coords[1] - world_coords[0]);
+            /*Vec3f n = (world_coords[2] - world_coords[0]) ^ (world_coords[1] - world_coords[0]);
+            n.normalize();*/
+            Vec3f v0Cam, v1Cam, v2Cam;
+            worldToCamera.multVecMatrix(world_coords[0], v0Cam);
+            worldToCamera.multVecMatrix(world_coords[1], v1Cam);
+            worldToCamera.multVecMatrix(world_coords[2], v2Cam);
+
+            Vec3f n = (v1Cam - v0Cam).crossProduct(v2Cam - v0Cam);
             n.normalize();
             float intensity = n.dotProduct(light_dir);
 
             //TODO-----------------------------------------------------------
             //Get rid of this line
-            intensity = 1;
+            //intensity = 1;
 
             if (intensity > 0) {
                 MtlMaterial mat = model->mat(face.material);
+
+                //std::cout << mat.diffuse << "\n";
+                //std::cout << mat.matName << "\n";
+
+                //Back face culling
+                if (n.dotProduct(v0Cam) <= 0) {
+                    tr->Triangle(raster_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
+                }
+
                 //tr->Triangle(screen_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
-                tr->Triangle(raster_coords, depthBuffer, z, image, TGAColor(intensity * /*mat.diffuse.r * */ 255, intensity * /*mat.diffuse.g **/ 255, intensity * /*mat.diffuse.b **/ 255, 255));
             }
 
             //std::cout << raster_coords[0] << " / " << raster_coords[1] << "\n";
