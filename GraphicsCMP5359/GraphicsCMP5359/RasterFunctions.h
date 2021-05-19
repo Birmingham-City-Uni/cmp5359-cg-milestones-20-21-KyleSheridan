@@ -66,6 +66,8 @@ void computeScreenCoordinates(
     top = ((filmApertureHeight * inchToMm / 2) / focalLength) * nearClippingPlane;
     right = ((filmApertureWidth * inchToMm / 2) / focalLength) * nearClippingPlane;
 
+
+
     // field of view (horizontal)
     //float fov = 2 * 180 / M_PI * atan((filmApertureWidth * inchToMm / 2) / focalLength);
     float fov = 54.43f;
@@ -238,7 +240,7 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
     camZ = distance * cosf(camAngleX * (M_PI / 180)) * sinf((camAngleY) * (M_PI / 180));
 
 
-    Vec3f eye(2.119, 62.945f, 126.19);
+    Vec3f eye(2.119, 50.945f, 86.0f);
     Vec3f target(3.0f, 19.0f, 0.0f);
     Vec3f up(0.0f, 1.0f, 0.0f);
     worldToCamera = lookAt(eye, target, up).inverse();
@@ -298,14 +300,14 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
             //Get rid of this line
             //intensity = 1;
 
-            if (intensity > 0) {
+            if (intensity >= 0) {
                 MtlMaterial mat = model->mat(face.material);
 
                 //std::cout << mat.diffuse << "\n";
                 //std::cout << mat.matName << "\n";
 
                 //Back face culling
-                if (n.dotProduct(v0Cam) <= 0) {
+                if (n.dotProduct(v1Cam) < 0) {
                     tr->Triangle(raster_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
                 }
 
