@@ -29,6 +29,36 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
           [
               T=float
           ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\aabb.h(32,7): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\aabb.h(31,7): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\aabb.h(30,20): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\aabb.h(35,7): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\aabb.h(34,7): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\aabb.h(33,18): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\camera.h(25,27): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
           with
           [
@@ -115,116 +145,118 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(58,37): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(78,24): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\triangle.h(35,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\triangle.h(28,8): warning C4101: 'thit': unreferenced local variable
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(59,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(79,24): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(78,79): warning C4305: 'argument': truncation from 'double' to 'T'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(79,79): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(78,55): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(79,55): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(87,60): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(88,60): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(87,49): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(88,49): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(87,38): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(88,38): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(94,37): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(118,60): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(95,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(119,60): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(118,49): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(119,49): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(118,38): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(119,38): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(125,37): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(144,22): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(126,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(145,22): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(144,77): warning C4305: 'argument': truncation from 'double' to 'T'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(145,77): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(144,53): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(145,53): warning C4244: 'argument': conversion from 'double' to 'const T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(153,59): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(154,59): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(153,48): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(154,48): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(153,37): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(154,37): warning C4244: 'argument': conversion from 'T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(170,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(171,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(170,77): warning C4305: 'argument': truncation from 'double' to 'T'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(171,77): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(170,21): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(171,21): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(171,7): warning C4305: 'argument': truncation from 'double' to 'T'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(172,7): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(198,68): warning C4305: 'argument': truncation from 'double' to 'T'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(199,68): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(200,63): warning C4305: 'argument': truncation from 'double' to 'T'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(201,63): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(216,37): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(245,9): warning C4101: 't': unreferenced local variable
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(259,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(293,9): warning C4101: 't': unreferenced local variable
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(162,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -232,7 +264,7 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
           ]
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(160): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random_In_Unit_Disk(void)'
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\camera.h(32): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random_In_Unit_Disk(void)' being compiled
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\model.h(20): message : see reference to class template instantiation 'Vec3<float>' being compiled
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\model.h(21): message : see reference to class template instantiation 'Vec3<float>' being compiled
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(162,31): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -244,7 +276,7 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
               T=float
           ]
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(148): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random(double,double)'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(179): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random(double,double)' being compiled
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(180): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random(double,double)' being compiled
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(149,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -261,7 +293,7 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
               T=float
           ]
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(144): message : while compiling class template member function 'Vec3<float> Vec3<float>::Random(void)'
-D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(174): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random(void)' being compiled
+D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\RayTracerFunctions.h(175): message : see reference to function template instantiation 'Vec3<float> Vec3<float>::Random(void)' being compiled
 D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\GraphicsCMP5359\geometry.h(145,45): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -273,7 +305,7 @@ D:\Documents\GitHub\cmp5359-cg-milestones-20-21-KyleSheridan\GraphicsCMP5359\Gra
               T=float
           ]
   Generating code
-  0 of 689 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  2 of 862 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

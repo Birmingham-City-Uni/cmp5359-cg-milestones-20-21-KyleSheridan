@@ -10,6 +10,7 @@
 #include "Sphere.h"
 #include "model.h"
 #include "bvh.h"
+#include "triangle.h"
 
 // method to ensure colours don’t go out of 8 bit range in RGB​
 void clamp255(Vec3f& col) {
@@ -211,21 +212,68 @@ Hittable_List Random_Scene() {
 	return Hittable_List(std::make_shared<BVH_Node>(world));
 }
 
+Hittable_List LoadScene(Model* model) {
+	Hittable_List scene;
+
+	int percent = 1;
+
+	for (int i = 0; i < model->nfaces(); i++) {
+		Face face = model->face(i);
+
+		Vec3f world_coords[3];
+		Vec3f norm_coords[3];
+
+		float z = -farClippingPlane;
+
+		if (face.faceSize() > 0) {
+			for (int j = 0; j < 3; j++) {
+				Vec3f v = model->vert(face.face[j]);
+
+				world_coords[j] = v;
+			}
+
+			//auto material = std::make_shared<Metal>(Colour(0.4, 0.2, 0.1), 0.5);
+			//auto material = std::make_shared<Lambertian>(Colour(0.4, 0.2, 0.1));
+			MtlMaterial mat = model->mat(face.material);
+			auto material = std::make_shared<Lambertian>(Colour(mat.diffuse.x, mat.diffuse.y, mat.diffuse.z));
+			scene.Add(std::make_shared<Triangle>(world_coords[0], world_coords[1], world_coords[2], material));
+		}
+
+		if (i % (model->nfaces() / 100) < 1) {
+			std::cout << percent << "%\n";
+			percent++;
+		}
+	}
+	std::cout << "Scene Loaded" << "\n";
+
+	Hittable_List world = Hittable_List(std::make_shared<BVH_Node>(scene));
+
+	std::cout << "BVH Generated" << "\n";
+	
+	return world;
+
+}
+
 void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max_depth, int width, int height) {
 	//	TODO: remove these and pass to threaded function?
 	const float aspect_ratio = 16.0 / 9;
 	const int image_width = width;
 	const int image_height = height;
 
-	auto world = Random_Scene();
+	//auto scene = Random_Scene();
+
+	auto scene = LoadScene(model);
 
 	//Camera
-	Point3f lookfrom(0, 2, 17);
-	Point3f lookat(0, 0, 0);
+	Point3f lookfrom(2.119f, 62.945f, 126.19f);
+	Point3f lookat(3, 19, 0);
+	/*Point3f lookfrom(0, 2, 5);
+	Point3f lookat(0, 0, 0);*/
+
 	Vec3f vup(0, 1, 0);
 	auto dist_to_focus = 17;
 	auto aperture = 0.15;
-	Camera cam(lookfrom, lookat, vup, 20.0, aspect_ratio, aperture, dist_to_focus);
+	Camera cam(lookfrom, lookat, vup, 33, aspect_ratio, aperture, dist_to_focus);
 
 	/*auto material_ground = std::make_shared<Lambertian>(Colour(0.8, 0.8, 0.0));
 	auto material_center = std::make_shared<Lambertian>(Colour(0.1, 0.2, 0.5));
@@ -247,7 +295,7 @@ void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max
 
 	auto t_start = std::chrono::high_resolution_clock::now();
 
-	FullRender(image, world, cam, spp, max_depth, width, height);
+	FullRender(image, scene, cam, spp, max_depth, width, height);
 
 	/*{
 		ThreadPool pool(std::thread::hardware_concurrency());

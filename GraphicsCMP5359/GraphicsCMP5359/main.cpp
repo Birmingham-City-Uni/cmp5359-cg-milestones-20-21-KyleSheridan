@@ -22,25 +22,25 @@ int main(int argc, char** argv) {
         model = new Model(argv[1], argv[2]);
     }
     else {
-        model = new Model("Scene.obj", "Scene.mtl");
+        model = new Model("Assets/Scene2.obj", "Assets/Scene2.mtl");
     }
 
     //Rasterizer
     {
-        TGAImage image(width, height, TGAImage::RGB);
+        //TGAImage image(width, height, TGAImage::RGB);
 
-        RenderRasteriser(image, model, width, height);
+        //RenderRasteriser(image, model, width, height);
 
-        image.write_tga_file("Rasteriser.tga");
+        //image.write_tga_file("Rasteriser.tga");
     }
 
     //Ray Tracer
     {
-		/*TGAImage image(width, height, TGAImage::RGB);
+		TGAImage image(width, height, TGAImage::RGB);
 
-		RenderRayTracer(image, model, 1, 50, width, height);
+		RenderRayTracer(image, model, 100, 10, width, height);
 
-		image.write_tga_file("RayTracer.tga");*/
+		image.write_tga_file("RayTracer.tga");
     }
 
 

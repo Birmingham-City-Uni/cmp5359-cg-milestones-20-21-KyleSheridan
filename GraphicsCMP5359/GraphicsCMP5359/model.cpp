@@ -29,6 +29,13 @@ Model::Model(const char* modelFilename, const char* matFilename) : verts_(), fac
             for (int i = 0; i < 2; i++) iss >> vt[i];
             vts_.push_back(vt);
         }
+        else if (!line.compare(0, 3, "vn ")) {
+            iss >> trash;
+            iss >> trash;
+            Vec3f vn;
+            for (int i = 0; i < 2; i++) iss >> vn[i];
+            vnorms_.push_back(vn);
+        }
         else if (!line.compare(0, 7, "usemtl ")) {
             material.clear();
             
@@ -39,16 +46,18 @@ Model::Model(const char* modelFilename, const char* matFilename) : verts_(), fac
         else if (!line.compare(0, 2, "f ")) {
             std::vector<int> f;
             std::vector<int> t;
-            int itrash, idx, tex;
+            std::vector<int> n;
+            int itrash, idx, tex, norm;
 
             iss >> trash;
-            while (iss >> idx >> trash >> tex >> trash >> itrash) {
+            while (iss >> idx >> trash >> tex >> trash >> norm) {
                 idx--; // in wavefront obj all indices start at 1, not zero
                 tex--;
                 f.push_back(idx);
                 t.push_back(tex);
+                n.push_back(norm);
             }
-            faces_.emplace_back(f, t, material);
+            faces_.emplace_back(f, t, n, material);
         }
     }
     std::cerr << "# v# " << verts_.size() << " f# " << faces_.size() << std::endl;
@@ -113,4 +122,8 @@ Vec3f Model::vert(int i) {
 
 Vec2f Model::vt(int i) {
     return vts_[i];
+}
+
+Vec3f Model::vn(int i) {
+    return vnorms_[i];
 }
