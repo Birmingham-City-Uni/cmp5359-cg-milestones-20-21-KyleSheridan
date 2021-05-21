@@ -159,7 +159,6 @@
     <ClInclude Include="RayTracerFunctions.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="tgaimage.h" />
-    <ClInclude Include="threadpool.h" />
     <ClInclude Include="triangle.h" />
     <ClInclude Include="TriangleRenderer.h" />
   </ItemGroup>

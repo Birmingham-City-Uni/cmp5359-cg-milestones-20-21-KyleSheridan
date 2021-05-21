@@ -5,7 +5,6 @@
 #include <chrono>
 #include <thread>
 
-#include "threadpool.h"
 #include "RasterFunctions.h"
 #include "RayTracerFunctions.h"
 
@@ -27,20 +26,20 @@ int main(int argc, char** argv) {
 
     //Rasterizer
     {
-        //TGAImage image(width, height, TGAImage::RGB);
+        TGAImage image(width, height, TGAImage::RGB);
 
-        //RenderRasteriser(image, model, width, height);
+        RenderRasteriser(image, model, width, height);
 
-        //image.write_tga_file("Rasteriser.tga");
+        image.write_tga_file("Rasteriser.tga");
     }
 
     //Ray Tracer
     {
-		TGAImage image(width, height, TGAImage::RGB);
+		/*TGAImage image(width, height, TGAImage::RGB);
 
 		RenderRayTracer(image, model, 100, 10, width, height);
 
-		image.write_tga_file("RayTracer.tga");
+		image.write_tga_file("RayTracer.tga");*/
     }
 
 

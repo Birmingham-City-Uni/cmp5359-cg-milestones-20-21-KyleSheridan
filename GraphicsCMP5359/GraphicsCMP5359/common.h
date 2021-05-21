@@ -11,13 +11,5 @@ inline double Degrees_To_Radians(double degrees) {
 	return degrees * pi / 180;
 }
 
-//inline double Random_Double() {
-//	return rand() / (RAND_MAX + 1.0);
-//}
-//
-//inline double Random_Double(double min, double max) {
-//	return min + (max - min) * Random_Double();
-//}
-
 #include "ray.h"
 #include "geometry.h"

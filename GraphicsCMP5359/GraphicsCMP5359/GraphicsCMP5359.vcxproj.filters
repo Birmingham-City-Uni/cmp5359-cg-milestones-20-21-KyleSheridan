@@ -59,9 +59,6 @@
     <ClInclude Include="Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="threadpool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>

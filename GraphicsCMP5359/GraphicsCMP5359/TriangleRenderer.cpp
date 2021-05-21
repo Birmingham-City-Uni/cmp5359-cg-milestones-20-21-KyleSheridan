@@ -9,9 +9,6 @@ void TriangleRenderer::Triangle(Vec2i points[3], std::vector<float>& depthBuffer
 			if (y >= 0 && y < image.get_height() && x >= 0 && x < image.get_width()) {
 				Vec2i point = Vec2i(x, y);
 				if (PointInTriangle(point, points[0], points[1], points[2])) {
-
-					//std::cout << y << " " << x << " " << y * 640 + x << "\n";
-
 					if (z < depthBuffer[y * 640 + x]) {
 						depthBuffer[y * 640 + x] = z;
 					
@@ -52,10 +49,6 @@ void TriangleRenderer::Triangle(Vec3f points[3], std::vector<float>& depthBuffer
 				float a = 1 / oneOverZ;
 
 				if (PointInTriangle(point, screenPoints[0], screenPoints[1], screenPoints[2])) {
-
-					//std::cout << y << " " << x << " " << y * 640 + x << "\n";
-					
-
 					if (z < depthBuffer[(y * image.get_width()) + x]) {
 						depthBuffer[(y * image.get_width()) + x] = z;
 

@@ -66,10 +66,6 @@ void computeScreenCoordinates(
     top = ((filmApertureHeight * inchToMm / 2) / focalLength) * nearClippingPlane;
     right = ((filmApertureWidth * inchToMm / 2) / focalLength) * nearClippingPlane;
 
-
-
-    // field of view (horizontal)
-    //float fov = 2 * 180 / M_PI * atan((filmApertureWidth * inchToMm / 2) / focalLength);
     float fov = 54.43f;
     std::cerr << "Field of view " << fov << std::endl;
 
@@ -104,10 +100,6 @@ void computeScreenCoordinates(
 }
 
 // Compute vertex raster screen coordinates.
-// Vertices are defined in world space. They are then converted to camera space,
-// then to NDC space (in the range [-1,1]) and then to raster space.
-// The z-coordinates of the vertex in raster space is set with the z-coordinate
-// of the vertex in camera space.
 void convertToRaster(
     const Vec3f& vertexWorld,
     const Matrix44f& worldToCamera,
@@ -121,44 +113,20 @@ void convertToRaster(
     Vec3f& vertexRaster
 )
 {
-    // TASK 1
-    // convert to camera space - your implementation here
-    // define a new Vec3f to store the camera space position of the vertex (vertexCamera)
-    // multiple the worldToCamera matrix with the vertexWorld position
-    // store the value in vertexCamera
     Vec3f vertexCamera;
     worldToCamera.multVecMatrix(vertexWorld, vertexCamera);
 
-
-    // TASK 2
-    // convert to screen space - your implementation here
-    // define a Vec2f to store the vertex screen space position (vertexScreen)
-    // calculate x and y components for this position from the vertexCamera variable
     Vec2f vertexScreen;
     vertexScreen.x = near * vertexCamera.x / -vertexCamera.z;
     vertexScreen.y = near * vertexCamera.y / -vertexCamera.z;
 
-    // TASK 3
-    // now convert point from screen space to NDC space (in range [-1,1])
-    // - your implementation here
-    // define a new Vec2f to support the NDC position (vertexNDC)
-    // calculate this position and store in vertexNDC
     Vec2f vertexNDC;
     vertexNDC.x = 2 * vertexScreen.x / (r - l) - (r + l) / (r - l);
     vertexNDC.y = 2 * vertexScreen.y / (t - b) - (t + b) / (t - b);
 
-    // TASK 4
-    // convert to raster space  - your implementation here
-    // vertexRaster is passed as reference and is where you store the output of this calculation
-    // convert from NDCs to raster position based upon image width and height
-    // store the z component in vertexRaster as the -ve depth from vertexCamera - used later in depth testing
-    // -ve depth actually makes this a positive depth value (as camera looks down -ve z)
-    // in raster space y is down so invert direction
     vertexRaster.x = (vertexNDC.x + 1) / 2 * imageWidth;
     vertexRaster.y = (1 - vertexNDC.y) / 2 * imageHeight;
     vertexRaster.z = -vertexCamera.z;
-
-    //std::cout << vertexRaster << "\n";
 }
 
 Matrix44f worldToCamera;
@@ -172,7 +140,6 @@ float filmApertureHeight = 0.735;
 
 Matrix44f lookAt(const Vec3f from, const Vec3f to, const Vec3f _tmp = Vec3f(0, 1, 0))
 {
-    // TASK 5
     // Calculate forward, right and up vectors
     Vec3f forward = from - to;
     forward.normalize();
@@ -219,13 +186,7 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
         focalLength,
         t, b, l, r);
 
-    /*float* depthBuffer = new float[width * height];
-    for (int i = 0; i < image.get_width() * image.get_height(); i++)
-        depthBuffer[i] = -farClippingPlane;*/
-
     std::vector<float> depthBuffer(width * height);
-    //for (int i = 0; i < image.get_width() * image.get_height(); i++)
-    //    depthBuffer.emplace_back(-farClippingPlane);
 
     std::fill(begin(depthBuffer), end(depthBuffer), farClippingPlane);
 
@@ -261,8 +222,6 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
         
         Face face = model->face(i);
 
-        //std::cout << i << "\n";
-
         Vec2i screen_coords[3];
         Vec3f world_coords[3];
         Vec3f raster_coords[3];
@@ -273,10 +232,6 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
             for (int j = 0; j < 3; j++) {
                 Vec3f v = model->vert(face.face[j]);
 
-                //std::cout << v << "\n";
-
-                //screen_coords[j] = Vec2i(((v.x + 1.0) * width / 8.0) + 200, ((v.y + 1.0) * height / 8.0) + 200); //TO DO - CHANGE THIS LINE -- THIS IS SO PALM TREE FITS
-
                 convertToRaster(v, worldToCamera, l, r, t, b, nearClippingPlane, width, height, raster_coords[j]);
 
                 world_coords[j] = v;
@@ -285,8 +240,7 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
                     z = raster_coords[j].z;
                 }
             }
-            /*Vec3f n = (world_coords[2] - world_coords[0]) ^ (world_coords[1] - world_coords[0]);
-            n.normalize();*/
+
             Vec3f v0Cam, v1Cam, v2Cam;
             worldToCamera.multVecMatrix(world_coords[0], v0Cam);
             worldToCamera.multVecMatrix(world_coords[1], v1Cam);
@@ -296,26 +250,14 @@ void RenderRasteriser(TGAImage& image, Model* model, int width, int height) {
             n.normalize();
             float intensity = n.dotProduct(light_dir);
 
-            //TODO-----------------------------------------------------------
-            //Get rid of this line
-            //intensity = 1;
-
             if (intensity >= 0) {
                 MtlMaterial mat = model->mat(face.material);
-
-                //std::cout << mat.diffuse << "\n";
-                //std::cout << mat.matName << "\n";
 
                 //Back face culling
                 if (n.dotProduct(v1Cam) < 0) {
                     tr->Triangle(raster_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
                 }
-
-                //tr->Triangle(screen_coords, depthBuffer, z, image, TGAColor(intensity * mat.diffuse.r * 255, intensity * mat.diffuse.g * 255, intensity * mat.diffuse.b * 255, 255));
-            }
-
-            //std::cout << raster_coords[0] << " / " << raster_coords[1] << "\n";
+           }
         }
     }
-    //image.flip_vertically(); // we want to have the origin at the left bottom corner of the image
 }

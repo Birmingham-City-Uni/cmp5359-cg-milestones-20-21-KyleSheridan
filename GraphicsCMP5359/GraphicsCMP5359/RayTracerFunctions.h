@@ -43,17 +43,7 @@ Colour Ray_Colour(const Ray& r, const Colour& background, const Hittable& world,
 		return emitted;
 
 	return emitted + attentuation * Ray_Colour(scattered, background, world, depth - 1);
-	
-	/*Vec3f unit_direction = r.Direction().normalize();
-	auto t = 0.5 * (unit_direction.y + 1.0);
-	return (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;*/
 }
-
-//	TODO: Use this if passing screen is thread unsafe.
-struct Result {
-	int x, y;
-	TGAColor colour;
-};
 
 void FullRender(TGAImage& image, Hittable_List world, Camera cam, int spp, int max_depth, int width, int height) {
 	const float aspect_ratio = 16.0 / 9;
@@ -91,73 +81,6 @@ void FullRender(TGAImage& image, Hittable_List world, Camera cam, int spp, int m
 	}
 }
 
-void PartialRender(TGAImage& image, Hittable_List world, Camera cam, int start, int step, int spp, int max_depth, int width, int height) {
-	const float aspect_ratio = 16.0 / 9;
-	const int image_width = width;
-	const int image_height = static_cast<int>(image_width / aspect_ratio);
-
-	//Camera cam;
-
-	const Colour black(0, 0, 0);
-	Colour pix_col(black);
-
-	for (int y = start; y >= start - step; --y) {
-		for (int x = 0; x < width; ++x) {
-			pix_col = black;
-			for (int s = 0; s < spp; s++) {
-				auto u = double(x + Random_Double()) / (image_width - 1);
-				auto v = double(y + Random_Double()) / (image_height - 1);
-				Ray ray = cam.Get_Ray(u, v);
-
-				pix_col = pix_col + Ray_Colour(ray, black, world, max_depth);
-			}
-			pix_col /= 255.f * spp;
-			pix_col.x = sqrt(pix_col.x);
-			pix_col.y = sqrt(pix_col.y);
-			pix_col.z = sqrt(pix_col.z);
-			pix_col *= 255;
-			TGAColor colour = TGAColor(pix_col.x, pix_col.y, pix_col.z, 255);
-			image.set(x, y, colour);
-		}
-	}
-}
-
-void LineRender(TGAImage& image, Hittable_List world, Camera* cam, int y, int spp, int max_depth, int width, int height) {
-	const float aspect_ratio = 16.0 / 9;
-	const int image_width = width;
-	const int image_height = static_cast<int>(image_width / aspect_ratio);
-
-	//Camera cam(90.0, aspect_ratio);
-	const Colour black(0, 0, 0);
-	Colour pix_col(black);
-
-	Colour background(0, 0, 0);
-
-	for (int x = 0; x < width; ++x) {
-		pix_col = black;
-		for (int s = 0; s < spp; s++) {
-			auto u = double(x + Random_Double()) / (image_width - 1);
-			auto v = double(y + Random_Double()) / (image_height - 1);
-			Ray ray = cam->Get_Ray(u, v);
-
-			Vec3f unit_direction = ray.Direction().normalize();
-			auto t = 0.5 * (unit_direction.y + 1.0);
-			background = (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;
-
-			pix_col = pix_col + Ray_Colour(ray, background, world, max_depth);
-		}
-		pix_col /= 255.f * spp;
-		pix_col.x = sqrt(pix_col.x);
-		pix_col.y = sqrt(pix_col.y);
-		pix_col.z = sqrt(pix_col.z);
-		pix_col *= 255;
-		TGAColor colour = TGAColor(pix_col.x, pix_col.y, pix_col.z, 255);
-		image.set(x, y, colour);
-	}
-}
-
-//==== TODO ===== 
-//Turn into Scene class instead of method
 Hittable_List Random_Scene() {
 	Hittable_List world;
 
@@ -203,8 +126,6 @@ Hittable_List Random_Scene() {
 	auto material4 = std::make_shared<Diffuse_Light>(Colour(255, 255, 255));
 	world.Add(std::make_shared<Sphere>(Point3f(0, 4, 0), 1.0, material4));
 
-	//return world;
-
 	auto t_end = std::chrono::high_resolution_clock::now();
 	auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
 	std::cerr << "BVH Generated:  " << passedTime << " ms\n";
@@ -221,9 +142,6 @@ Hittable_List LoadScene(Model* model) {
 		Face face = model->face(i);
 
 		Vec3f world_coords[3];
-		Vec3f norm_coords[3];
-
-		float z = -farClippingPlane;
 
 		if (face.faceSize() > 0) {
 			for (int j = 0; j < 3; j++) {
@@ -231,9 +149,6 @@ Hittable_List LoadScene(Model* model) {
 
 				world_coords[j] = v;
 			}
-
-			//auto material = std::make_shared<Metal>(Colour(0.4, 0.2, 0.1), 0.5);
-			//auto material = std::make_shared<Lambertian>(Colour(0.4, 0.2, 0.1));
 			MtlMaterial mat = model->mat(face.material);
 			auto material = std::make_shared<Lambertian>(Colour(mat.diffuse.x, mat.diffuse.y, mat.diffuse.z));
 			scene.Add(std::make_shared<Triangle>(world_coords[0], world_coords[1], world_coords[2], material));
@@ -251,40 +166,23 @@ Hittable_List LoadScene(Model* model) {
 	std::cout << "BVH Generated" << "\n";
 	
 	return world;
-
 }
 
 void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max_depth, int width, int height) {
-	//	TODO: remove these and pass to threaded function?
 	const float aspect_ratio = 16.0 / 9;
 	const int image_width = width;
 	const int image_height = height;
-
-	//auto scene = Random_Scene();
 
 	auto scene = LoadScene(model);
 
 	//Camera
 	Point3f lookfrom(2.119f, 62.945f, 126.19f);
 	Point3f lookat(3, 19, 0);
-	/*Point3f lookfrom(0, 2, 5);
-	Point3f lookat(0, 0, 0);*/
 
 	Vec3f vup(0, 1, 0);
 	auto dist_to_focus = 17;
 	auto aperture = 0.15;
 	Camera cam(lookfrom, lookat, vup, 33, aspect_ratio, aperture, dist_to_focus);
-
-	/*auto material_ground = std::make_shared<Lambertian>(Colour(0.8, 0.8, 0.0));
-	auto material_center = std::make_shared<Lambertian>(Colour(0.1, 0.2, 0.5));
-	auto material_left = std::make_shared<Dielectric>(1.5);
-	auto material_right = std::make_shared<Metal>(Colour(0.8, 0.6, 0.2), 0.0);
-
-	world.Add(std::make_shared<Sphere>(Point3f(0.0, -100.5, -1.0), 100.0, material_ground));
-	world.Add(std::make_shared<Sphere>(Point3f(0.0, 0.0, -1.0), 0.5, material_center));
-	world.Add(std::make_shared<Sphere>(Point3f(-1.0, 0.0, -1.0), 0.5, material_left));
-	world.Add(std::make_shared<Sphere>(Point3f(-1.0, 0.0, -1.0), -0.4, material_left));
-	world.Add(std::make_shared<Sphere>(Point3f(1.0, 0.0, -1.0), 0.5, material_right));*/
 
 	const Colour white(255, 255, 255);
 	const Colour black(0, 0, 0);
@@ -296,15 +194,6 @@ void RenderRayTracer(TGAImage& image, Model* model, const int spp, const int max
 	auto t_start = std::chrono::high_resolution_clock::now();
 
 	FullRender(image, scene, cam, spp, max_depth, width, height);
-
-	/*{
-		ThreadPool pool(std::thread::hardware_concurrency());
-
-		for (int y = height - 1; y >= 0; --y)
-		{
-			pool.Enqueue(std::bind(LineRender, image, world, &cam, y, spp, max_depth, width, height));
-		}
-	}*/
 
 	auto t_end = std::chrono::high_resolution_clock::now();
 	auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();

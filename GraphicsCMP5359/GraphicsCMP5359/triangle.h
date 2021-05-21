@@ -53,10 +53,6 @@ bool Triangle::Hit(const Ray& r, double t_min, double t_max, Hit_Record& rec) co
 
 	rec.p = r.At(t);
 	rec.t = t;
-
-	//Vec3f fnormal = (v0n + v1n + v2n / 3);
-	//rec.normal = fnormal;
-
 	rec.normal = normal;
 	rec.mat_ptr = mat_ptr;
 
