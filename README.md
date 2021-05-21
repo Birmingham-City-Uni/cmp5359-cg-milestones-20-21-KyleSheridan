@@ -1,10 +1,10 @@
 # cmp5359-cg-milestones-20-21-KyleSheridan
 cmp5359-cg-milestones-20-21-KyleSheridan created by GitHub Classroom
 
-##Computer Graphics
+## Computer Graphics
 C++ code generating renders usigng rasterisation and ray tracing techniques 
 
-###File Structure
+### File Structure
 - cmp5359-cg-milestones-20-21-KyleSheridan
 - - PBRT Render
 - - Scene Render
@@ -17,7 +17,7 @@ C++ code generating renders usigng rasterisation and ray tracing techniques
 - - - - RayTracer.tga ( RayTracer render )
 - - - - Assets ( Assets folder )
 
-###References
+### References
 MODELS
 - Monitor  https://www.turbosquid.com/3d-models/free-obj-model-27-inch-monitor/1013229 
 - PlayStation 4 & controller  https://www.turbosquid.com/3d-models/playstation-play-sony-3d-1419763 
